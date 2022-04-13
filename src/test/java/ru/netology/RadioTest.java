@@ -1,0 +1,93 @@
+package ru.netology;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class RadioTest {
+    @Test
+    public void setCurrentNumber() {
+        Radio rd = new Radio();
+
+        rd.setCurrentNumber(5);
+
+
+        int expected = 5;
+        int actual = rd.getCurrentNumber();
+        assertEquals(expected, actual);
+
+
+    }
+
+    @Test
+    public void nextNumber() {
+        Radio rd = new Radio();
+        rd.setCurrentNumber(5);
+        rd.nextNumber();
+
+        int expected = 6;
+        int actual = rd.getCurrentNumber();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void nextAfterEndNumber() {
+        Radio rd = new Radio();
+        rd.setCurrentNumber(9);
+        rd.nextNumber();
+
+        int expected = 0;
+        int actual = rd.getCurrentNumber();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void prevNumber() {
+        Radio rd = new Radio();
+
+        rd.setCurrentNumber(9);
+
+        rd.prevNumber();
+
+        int expected = 8;
+        int actual = rd.getCurrentNumber();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void prevBeforeZeroNumber() {
+        Radio rd = new Radio();
+
+        rd.setCurrentNumber(0);
+
+        rd.prevNumber();
+
+        int expected = 9;
+        int actual = rd.getCurrentNumber();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void increaseVolume() {
+        Radio rd = new Radio();
+        rd.setCurrentVolume(10);
+        rd.increaseVolume();
+
+        int expected = 10;
+        int actual = rd.getCurrentVolume();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void reduceVolume() {
+        Radio rd = new Radio();
+        rd.setCurrentVolume(0);
+        rd.reduceVolume();
+
+        int expected = 0;
+        int actual = rd.getCurrentVolume();
+        assertEquals(expected, actual);
+    }
+
+
+}
