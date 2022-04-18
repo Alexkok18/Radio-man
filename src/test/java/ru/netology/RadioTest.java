@@ -5,6 +5,35 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
+
+    @Test
+    public void setMinCurrentNumber() {
+        Radio rd = new Radio();
+
+        rd.setCurrentNumber(-1);
+
+
+        int expected = 0;
+        int actual = rd.getCurrentNumber();
+        assertEquals(expected, actual);
+
+
+    }
+
+    @Test
+    public void setMaxCurrentNumber() {
+        Radio rd = new Radio();
+
+        rd.setCurrentNumber(11);
+
+
+        int expected = 0;
+        int actual = rd.getCurrentNumber();
+        assertEquals(expected, actual);
+
+
+    }
+
     @Test
     public void setCurrentNumber() {
         Radio rd = new Radio();
@@ -22,10 +51,10 @@ class RadioTest {
     @Test
     public void nextNumber() {
         Radio rd = new Radio();
-        rd.setCurrentNumber(5);
+        rd.setCurrentNumber(8);
         rd.nextNumber();
 
-        int expected = 6;
+        int expected = 9;
         int actual = rd.getCurrentNumber();
         assertEquals(expected, actual);
     }
@@ -45,11 +74,11 @@ class RadioTest {
     public void prevNumber() {
         Radio rd = new Radio();
 
-        rd.setCurrentNumber(9);
+        rd.setCurrentNumber(1);
 
         rd.prevNumber();
 
-        int expected = 8;
+        int expected = 0;
         int actual = rd.getCurrentNumber();
         assertEquals(expected, actual);
     }
@@ -70,6 +99,17 @@ class RadioTest {
     @Test
     public void increaseVolume() {
         Radio rd = new Radio();
+        rd.setCurrentVolume(5);
+        rd.increaseVolume();
+
+        int expected = 6;
+        int actual = rd.getCurrentVolume();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void increaseVolumeAfterTen() {
+        Radio rd = new Radio();
         rd.setCurrentVolume(10);
         rd.increaseVolume();
 
@@ -79,12 +119,45 @@ class RadioTest {
     }
 
     @Test
-    public void reduceVolume() {
+    public void setImpossibleMaxVolume() {
+        Radio rd = new Radio();
+        rd.setCurrentVolume(12);
+
+
+        int expected = 0;
+        int actual = rd.getCurrentVolume();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void setImpossibleMinVolume() {
+        Radio rd = new Radio();
+        rd.setCurrentVolume(-2);
+
+
+        int expected = 0;
+        int actual = rd.getCurrentVolume();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void reduceZeroVolume() {
         Radio rd = new Radio();
         rd.setCurrentVolume(0);
         rd.reduceVolume();
 
         int expected = 0;
+        int actual = rd.getCurrentVolume();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void reduceVolume() {
+        Radio rd = new Radio();
+        rd.setCurrentVolume(4);
+        rd.reduceVolume();
+
+        int expected = 3;
         int actual = rd.getCurrentVolume();
         assertEquals(expected, actual);
     }
