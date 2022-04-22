@@ -4,6 +4,12 @@ public class Radio {
 
     private int currentNumber;
     private int currentVolume;
+    static final int carrentNumberMax = 9;
+    static final int carrentNumberMin = 0;
+    static final int carrentVolumeMax = 10;
+    static final int carrentVolumeMin = 0;
+
+
 
     public int getCurrentNumber() {
         return currentNumber;
@@ -25,50 +31,47 @@ public class Radio {
     }
 
     public void setCurrentVolume(int currentVolume) {
-        if (currentVolume < 0) {
-            return;
-        }
-        if (currentVolume > 10) {
-            return;
-        }
+
         this.currentVolume = currentVolume;
     }
 
     public void nextNumber() {
-        if (currentNumber == 9) {
-            currentNumber = 0;
-            return;
-        }
-        if (currentNumber < 9) {
+        if (currentNumber == carrentNumberMax) {
+            currentNumber = carrentNumberMin;
+        } else {
             currentNumber = currentNumber + 1;
         }
+
 
 
     }
 
     public void prevNumber() {
-        if (currentNumber == 0) {
-            currentNumber = 9;
-            return;
-        }
-        if (currentNumber <= 9 && currentNumber >= 1) {
+        if (currentNumber == carrentNumberMin) {
+            currentNumber = carrentNumberMax;
+        } else {
             currentNumber = currentNumber - 1;
         }
-
-
     }
 
 
     public void increaseVolume() {
-        if (currentVolume < 10) {
-            currentVolume = currentVolume + 1;
+        if (currentVolume == carrentVolumeMax){
+            return;
         }
+        this.currentVolume = currentVolume + 1;
+
+
+
     }
 
     public void reduceVolume() {
-        if (currentVolume >= 1 && currentVolume <= 10) {
-            currentVolume = currentVolume - 1;
+        if (currentVolume == carrentVolumeMin ) {
+            return;
+
         }
+        this.currentVolume = currentVolume - 1;
+
     }
 
 
