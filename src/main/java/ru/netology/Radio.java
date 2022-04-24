@@ -6,8 +6,12 @@ public class Radio {
     private int currentVolume;
     static final int carrentNumberMax = 9;
     static final int carrentNumberMin = 0;
-    static final int carrentVolumeMax = 10;
+    static final int carrentVolumeMax = 100;
     static final int carrentVolumeMin = 0;
+
+    public Radio(){
+
+    }
 
 
     public int getCurrentNumber() {
