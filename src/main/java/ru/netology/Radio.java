@@ -6,20 +6,20 @@ public class Radio {
 
     private int currentNumber;
     private int currentVolume;
-    private int carrentNumberMax ;
+    private int carrentNumberMax;
     static final int carrentNumberMin = 0;
     static final int carrentVolumeMax = 100;
     static final int carrentVolumeMin = 0;
 
-    public Radio(){
+    public Radio() {
         this.carrentNumberMax = 9;
 
     }
-    public Radio(int currentNumberMax){
+
+    public Radio(int currentNumberMax) {
         this.carrentNumberMax = currentNumberMax;
 
     }
-
 
 
     public int getCurrentNumber() {
