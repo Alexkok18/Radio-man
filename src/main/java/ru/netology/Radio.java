@@ -10,7 +10,6 @@ public class Radio {
     static final int carrentVolumeMin = 0;
 
 
-
     public int getCurrentNumber() {
         return currentNumber;
     }
@@ -43,7 +42,6 @@ public class Radio {
         }
 
 
-
     }
 
     public void prevNumber() {
@@ -56,17 +54,16 @@ public class Radio {
 
 
     public void increaseVolume() {
-        if (currentVolume == carrentVolumeMax){
+        if (currentVolume == carrentVolumeMax) {
             return;
         }
         this.currentVolume = currentVolume + 1;
 
 
-
     }
 
     public void reduceVolume() {
-        if (currentVolume == carrentVolumeMin ) {
+        if (currentVolume == carrentVolumeMin) {
             return;
 
         }
