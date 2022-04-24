@@ -110,11 +110,11 @@ class RadioTest {
 
     @Test
     public void increaseVolumeAfterMax() {
-        Radio rd = new Radio();
-        rd.setCurrentVolume(10);
+        Radio rd = new Radio(100);
+        rd.setCurrentVolume(100);
         rd.increaseVolume();
 
-        int expected = 10;
+        int expected = 100;
         int actual = rd.getCurrentVolume();
         assertEquals(expected, actual);
     }
