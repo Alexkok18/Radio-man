@@ -5,19 +5,24 @@ import java.lang.reflect.Constructor;
 public class Radio {
 
     private int currentNumber;
+    private int currentNumberMax;
+    static final int currentNumberMin = 0;
     private int currentVolume;
-    private int carrentNumberMax;
-    static final int carrentNumberMin = 0;
-    static final int carrentVolumeMax = 100;
-    static final int carrentVolumeMin = 0;
+    static final int currentVolumeMax = 100;
+    static final int currentVolumeMin = 0;
+    private int amountStations;
+    private int MyStation;
 
     public Radio() {
-        this.carrentNumberMax = 9;
+        this.amountStations = 10;
+        this.currentNumberMax = amountStations - 1;
 
     }
 
-    public Radio(int currentNumberMax) {
-        this.carrentNumberMax = currentNumberMax;
+    public Radio(int amountStations) {
+        this.amountStations = amountStations;
+        this.currentNumberMax = amountStations - 1;
+
 
     }
 
@@ -26,14 +31,20 @@ public class Radio {
         return currentNumber;
     }
 
+
     public void setCurrentNumber(int currentNumber) {
-        if (currentNumber < 0) {
+        if (currentNumber < currentNumberMin) {
             return;
         }
-        if (currentNumber > 9) {
+        if (currentNumber > currentNumberMax) {
             return;
         }
         this.currentNumber = currentNumber;
+
+    }
+
+    public void setMyStation(int MyStation) {
+        this.currentNumber = MyStation - 1;
 
     }
 
@@ -47,8 +58,8 @@ public class Radio {
     }
 
     public void nextNumber() {
-        if (currentNumber == carrentNumberMax) {
-            currentNumber = carrentNumberMin;
+        if (currentNumber == currentNumberMax) {
+            currentNumber = currentNumberMin;
         } else {
             currentNumber = currentNumber + 1;
         }
@@ -57,8 +68,8 @@ public class Radio {
     }
 
     public void prevNumber() {
-        if (currentNumber == carrentNumberMin) {
-            currentNumber = carrentNumberMax;
+        if (currentNumber == currentNumberMin) {
+            currentNumber = currentNumberMax;
         } else {
             currentNumber = currentNumber - 1;
         }
@@ -66,7 +77,7 @@ public class Radio {
 
 
     public void increaseVolume() {
-        if (currentVolume == carrentVolumeMax) {
+        if (currentVolume == currentVolumeMax) {
             return;
         }
         this.currentVolume = currentVolume + 1;
@@ -75,7 +86,7 @@ public class Radio {
     }
 
     public void reduceVolume() {
-        if (currentVolume == carrentVolumeMin) {
+        if (currentVolume == currentVolumeMin) {
             return;
 
         }
