@@ -1,6 +1,8 @@
 package ru.netology;
 
+import lombok.Data;
 
+@Data
 public class Radio {
 
     private int currentNumber;
@@ -21,10 +23,6 @@ public class Radio {
     }
 
 
-    public int getCurrentNumber() {
-        return currentNumber;
-    }
-
     public void setCurrentNumber(int currentNumber) {
         if (currentNumber < 0) {
             return;
@@ -36,14 +34,6 @@ public class Radio {
 
     }
 
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
-    public void setCurrentVolume(int currentVolume) {
-
-        this.currentVolume = currentVolume;
-    }
 
     public void nextNumber() {
         if (currentNumber == carrentNumberMax) {
