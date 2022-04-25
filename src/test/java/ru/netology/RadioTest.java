@@ -49,6 +49,20 @@ class RadioTest {
     }
 
     @Test
+    public void setMyNumber() {
+        Radio rd = new Radio(20);
+
+        rd.setMyStation(15);
+
+
+        int expected = 14;
+        int actual = rd.getCurrentNumber();
+        assertEquals(expected, actual);
+
+
+    }
+
+    @Test
     public void nextNumber() {
         Radio rd = new Radio();
         rd.setCurrentNumber(8);
@@ -111,10 +125,10 @@ class RadioTest {
     @Test
     public void increaseVolumeAfterMax() {
         Radio rd = new Radio();
-        rd.setCurrentVolume(10);
+        rd.setCurrentVolume(100);
         rd.increaseVolume();
 
-        int expected = 10;
+        int expected = 100;
         int actual = rd.getCurrentVolume();
         assertEquals(expected, actual);
     }
